@@ -62,7 +62,7 @@ public class Window {
         glfwDefaultWindowHints();
         glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);
         glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
-        glfwWindowHint(GLFW_MAXIMIZED, GLFW_FALSE);
+        glfwWindowHint(GLFW_MAXIMIZED, GLFW_TRUE);
 
         // Create the window
         window = glfwCreateWindow(this.width, this.height, this.title, NULL, NULL);
@@ -84,6 +84,8 @@ public class Window {
         glfwShowWindow(window);
 
         GL.createCapabilities();
+
+        game.getCurrentScene().init();
     }
 
     private void loop(){
@@ -95,7 +97,7 @@ public class Window {
             // Poll events
             glfwPollEvents();
 
-            glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
+            glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT);
 
             if (deltaTime >= 0) {
