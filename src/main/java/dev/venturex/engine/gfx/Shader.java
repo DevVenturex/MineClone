@@ -1,6 +1,7 @@
 package dev.venturex.engine.gfx;
 
 import org.joml.Matrix4f;
+import org.joml.Vector4f;
 import org.lwjgl.BufferUtils;
 
 import java.io.IOException;
@@ -25,7 +26,7 @@ import static org.lwjgl.opengl.GL30.glGenVertexArrays;
 public class Shader {
 
     private int shaderProgramID;
-
+    private boolean beingUsed = false;
     private String vertexSource;
     private String fragmentSource;
     private String filepath;
@@ -92,18 +93,29 @@ public class Shader {
     }
 
     public void use() {
-        // Bind shader program
-        glUseProgram(shaderProgramID);
+        if (!beingUsed){
+            // Bind shader program
+            glUseProgram(shaderProgramID);
+            beingUsed = true;
+        }
     }
 
     public void detach() {
         glUseProgram(0);
+        beingUsed = false;
     }
 
     public void uploadMat4f(String varName, Matrix4f mat4f){
         int varLocation = glGetUniformLocation(shaderProgramID, varName);
+        use();
         FloatBuffer matBuffer = BufferUtils.createFloatBuffer(16);
         mat4f.get(matBuffer);
         glUniformMatrix4fv(varLocation, false, matBuffer);
+    }
+
+    public void uploadTexture(String varName, int slot){
+        int varLocation = glGetUniformLocation(shaderProgramID, varName);
+        use();
+        glUniform1i(varLocation, slot);
     }
 }
