@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="85cedd12-6fa4-488f-b771-ac3941f74938" name="Changes" comment="commit">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/Game.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/Window.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/inputs/MouseListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/game/MyGame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/inputs/Inputs.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/inputs/KeyListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/Window.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/inputs/MouseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/inputs/MouseListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,18 +46,20 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="27sHAGoBesOhIIQxGedMJe6aysU" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="MyGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="dev.venturex.game.MyGame" />
@@ -96,7 +96,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650101840913</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="commit">
+      <created>1650104512777</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1650104512777</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

@@ -1,5 +1,8 @@
 package dev.venturex.engine;
 
+import dev.venturex.engine.inputs.Inputs;
+import dev.venturex.engine.inputs.KeyListener;
+import dev.venturex.engine.inputs.MouseListener;
 import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.opengl.GL;
@@ -64,6 +67,11 @@ public class Window {
             throw new IllegalStateException("Failed to create the GLFW window");
         }
 
+        glfwSetCursorPosCallback(window, MouseListener::mousePosCallback);
+        glfwSetMouseButtonCallback(window, MouseListener::mouseButtonCallback);
+        glfwSetScrollCallback(window, MouseListener::mouseScrollCallback);
+        glfwSetKeyCallback(window, KeyListener::keyCallback);
+
         // Make the OpenGL context current
         glfwMakeContextCurrent(window);
         // Enable v-sync
@@ -82,6 +90,7 @@ public class Window {
 
             glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT);
+
 
             glfwSwapBuffers(window); 
         }
