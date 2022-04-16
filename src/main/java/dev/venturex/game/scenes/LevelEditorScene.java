@@ -1,12 +1,17 @@
 package dev.venturex.game.scenes;
 
 import dev.venturex.engine.Scene;
+import dev.venturex.engine.gfx.Camera;
 import dev.venturex.engine.gfx.Shader;
+import dev.venturex.engine.inputs.Inputs;
+import org.joml.Vector2f;
 import org.lwjgl.BufferUtils;
+import org.lwjgl.glfw.GLFW;
 
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 
+import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL20.*;
 import static org.lwjgl.opengl.GL30.glBindVertexArray;
 import static org.lwjgl.opengl.GL30.glGenVertexArrays;
@@ -17,10 +22,10 @@ public class LevelEditorScene extends Scene {
 
     private float[] vertexArray = {
             // position               // color
-            0.5f, -0.5f, 0.0f,       1.0f, 0.0f, 0.0f, 1.0f, // Bottom right 0
-            -0.5f,  0.5f, 0.0f,       0.0f, 1.0f, 0.0f, 1.0f, // Top left     1
-            0.5f,  0.5f, 0.0f ,      1.0f, 0.0f, 1.0f, 1.0f, // Top right    2
-            -0.5f, -0.5f, 0.0f,       1.0f, 1.0f, 0.0f, 1.0f, // Bottom left  3
+            100.5f, 0.5f, 0.0f,       1.0f, 0.0f, 0.0f, 1.0f, // Bottom right 0
+            0.5f,  100.5f, 0.0f,       0.0f, 1.0f, 0.0f, 1.0f, // Top left     1
+            100.5f,  100.5f, 0.0f ,      1.0f, 0.0f, 1.0f, 1.0f, // Top right    2
+            0.5f, 0.5f, 0.0f,       1.0f, 1.0f, 0.0f, 1.0f, // Bottom left  3
     };
 
     // IMPORTANT: Must be in counter-clockwise order
@@ -43,6 +48,7 @@ public class LevelEditorScene extends Scene {
 
     @Override
     public void init() {
+        this.camera = new Camera(new Vector2f(-200, -200));
         defaultShader = new Shader("/home/basti/nas/Development/Java/MineClone/src/main/resources/assets/shaders/vertex.glsl", "/home/basti/nas/Development/Java/MineClone/src/main/resources/assets/shaders/fragment.glsl");
         defaultShader.compile();
 
@@ -83,7 +89,10 @@ public class LevelEditorScene extends Scene {
 
     @Override
     public void update(float deltaTime) {
+
         defaultShader.use();
+        defaultShader.uploadMat4f("uProjection", camera.getProjectionMatrix());
+        defaultShader.uploadMat4f("uView", camera.getViewMatrix());
         // Bind the VAO that we're using
         glBindVertexArray(vaoID);
 
