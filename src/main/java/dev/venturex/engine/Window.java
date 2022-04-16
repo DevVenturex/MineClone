@@ -3,6 +3,7 @@ package dev.venturex.engine;
 import dev.venturex.engine.inputs.Inputs;
 import dev.venturex.engine.inputs.KeyListener;
 import dev.venturex.engine.inputs.MouseListener;
+import dev.venturex.engine.utils.Time;
 import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.opengl.GL;
@@ -14,13 +15,15 @@ import static org.lwjgl.system.MemoryUtil.NULL;
 
 public class Window {
 
+    private Game game;
     private Window instance;
 
     private String title;
     private int width, height;
     private long window;
 
-    public Window get(String title, int width, int height){
+    public Window get(Game game, String title, int width, int height){
+        this.game = game;
         this.title = title;
         this.width = width;
         this.height = height;
@@ -84,6 +87,10 @@ public class Window {
     }
 
     private void loop(){
+        float lastTime = Time.getTime();
+        float endTime = Time.getTime();
+        float deltaTime = -1;
+
         while (!glfwWindowShouldClose(window)){
             // Poll events
             glfwPollEvents();
@@ -91,8 +98,16 @@ public class Window {
             glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT);
 
+            if (deltaTime >= 0) {
+                game.getCurrentScene().update(deltaTime);
+                glfwSetWindowTitle(window, title + " || FPS: " + (int) (1 / deltaTime));
+            }
 
-            glfwSwapBuffers(window); 
+            glfwSwapBuffers(window);
+
+            endTime = Time.getTime();
+            deltaTime = endTime - lastTime;
+            lastTime = endTime;
         }
     }
 }

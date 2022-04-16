@@ -6,11 +6,15 @@ public class Game implements Runnable {
     private String title;
     private int width;
     private int height;
+    private Scene currentScene;
+    private Scene mainScene;
 
-    public Game(String title, int width, int height) {
+    public Game(String title, int width, int height, Scene mainScene) {
         this.title = title;
         this.width = width;
         this.height = height;
+        this.mainScene = mainScene;
+        this.currentScene = mainScene;
     }
 
     public synchronized void start(){
@@ -30,7 +34,7 @@ public class Game implements Runnable {
     @Override
     public void run() {
         window = new Window();
-        window.get(title, width, height);
+        window.get(this, title, width, height);
         window.run();
     }
 
@@ -44,5 +48,18 @@ public class Game implements Runnable {
 
     public int getHeight() {
         return height;
+    }
+
+    public Scene getMainScene() {
+        return currentScene;
+    }
+
+    public Scene getCurrentScene() {
+        return currentScene;
+    }
+
+    public void setScene(Scene nextScene){
+        this.currentScene = nextScene;
+        //currentScene.init();
     }
 }

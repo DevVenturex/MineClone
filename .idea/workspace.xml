@@ -5,11 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="85cedd12-6fa4-488f-b771-ac3941f74938" name="Changes" comment="commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/inputs/Inputs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/inputs/KeyListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/Scene.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/utils/Time.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/game/scenes/LevelEditorScene.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/game/scenes/LevelScene.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/game/scenes/SceneManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/Window.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/inputs/MouseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/inputs/MouseListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/venturex/game/MyGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/game/MyGame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +107,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650104512777</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="commit">
+      <created>1650106547839</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1650106547839</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
