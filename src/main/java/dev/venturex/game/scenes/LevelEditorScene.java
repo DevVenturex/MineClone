@@ -4,8 +4,11 @@ import dev.venturex.engine.Scene;
 import dev.venturex.engine.components.SpriteRenderer;
 import dev.venturex.engine.gfx.Camera;
 import dev.venturex.engine.maths.Transform;
+import dev.venturex.engine.utils.AssetPool;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
+
+import java.io.File;
 
 public class LevelEditorScene extends Scene {
 
@@ -31,6 +34,15 @@ public class LevelEditorScene extends Scene {
                 this.addGameObjectToScene(go);
             }
         }
+
+        loadResources();
+    }
+
+    private void loadResources(){
+        File vertexShaderFile = AssetPool.getFile("src/main/resources/assets/shaders/vertex.glsl");
+        File fragmentShaderFile = AssetPool.getFile("src/main/resources/assets/shaders/fragment.glsl");
+        AssetPool.getShader(vertexShaderFile, fragmentShaderFile);
+
     }
 
     @Override

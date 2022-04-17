@@ -31,10 +31,24 @@ public class Shader {
     private String fragmentSource;
     private String filepath;
 
+    public Shader() {}
+
     public Shader(String vertexShaderFile, String fragmentShaderFile) {
+        setVertexShader(vertexShaderFile);
+        setFragmentShader(fragmentShaderFile);
+    }
+
+    public void setVertexShader(String shaderFile){
         try {
-            vertexSource = new String(Files.readAllBytes(Paths.get(vertexShaderFile)));
-            fragmentSource = new String(Files.readAllBytes(Paths.get(fragmentShaderFile)));
+            vertexSource = new String(Files.readAllBytes(Paths.get(shaderFile)));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void setFragmentShader(String shaderFile){
+        try {
+            fragmentSource = new String(Files.readAllBytes(Paths.get(shaderFile)));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -103,6 +117,10 @@ public class Shader {
     public void detach() {
         glUseProgram(0);
         beingUsed = false;
+    }
+
+    public int getShaderProgramID() {
+        return shaderProgramID;
     }
 
     public void uploadMat4f(String varName, Matrix4f mat4f){

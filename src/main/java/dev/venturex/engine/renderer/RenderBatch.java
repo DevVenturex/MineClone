@@ -3,7 +3,10 @@ package dev.venturex.engine.renderer;
 import dev.venturex.engine.Game;
 import dev.venturex.engine.components.SpriteRenderer;
 import dev.venturex.engine.gfx.Shader;
+import dev.venturex.engine.utils.AssetPool;
 import org.joml.Vector4f;
+
+import java.io.File;
 
 import static org.lwjgl.opengl.GL15.*;
 import static org.lwjgl.opengl.GL20.*;
@@ -34,8 +37,9 @@ public class RenderBatch {
     private Shader shader;
 
     public RenderBatch(int maxBatchSize){
-        shader = new Shader("src/main/resources/assets/shaders/vertex.glsl", "src/main/resources/assets/shaders/fragment.glsl");
-        shader.compile();
+        File vertexShaderFile = AssetPool.getFile("src/main/resources/assets/shaders/vertex.glsl");
+        File fragmentShaderFile = AssetPool.getFile("src/main/resources/assets/shaders/fragment.glsl");
+        shader = AssetPool.getShader(vertexShaderFile, fragmentShaderFile);
         this.sprites = new SpriteRenderer[maxBatchSize];
         this.maxBatchSize = maxBatchSize;
 
