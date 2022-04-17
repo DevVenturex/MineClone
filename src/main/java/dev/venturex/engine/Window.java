@@ -86,6 +86,7 @@ public class Window {
         GL.createCapabilities();
 
         game.getCurrentScene().init();
+        game.getCurrentScene().start();
     }
 
     private void loop(){

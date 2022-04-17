@@ -1,12 +1,14 @@
 package dev.venturex.engine;
 
 public class Game implements Runnable {
+
+    private static Game instance;
     private Thread mainThread;
     private Window window;
     private String title;
     private int width;
     private int height;
-    private Scene currentScene;
+    private static Scene currentScene;
     private Scene mainScene;
 
     public Game(String title, int width, int height, Scene mainScene) {
@@ -54,12 +56,13 @@ public class Game implements Runnable {
         return currentScene;
     }
 
-    public Scene getCurrentScene() {
+    public static Scene getCurrentScene() {
         return currentScene;
     }
 
     public void setScene(Scene nextScene){
         this.currentScene = nextScene;
         currentScene.init();
+        currentScene.start();
     }
 }

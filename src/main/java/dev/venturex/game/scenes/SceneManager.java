@@ -16,5 +16,6 @@ public class SceneManager {
         this.lastScene = currentScene;
         this.currentScene = nextScene;
         currentScene.init();
+        currentScene.start();
     }
 }
