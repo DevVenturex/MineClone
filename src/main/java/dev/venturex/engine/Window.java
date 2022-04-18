@@ -1,9 +1,7 @@
 package dev.venturex.engine;
 
-import dev.venturex.engine.inputs.Inputs;
 import dev.venturex.engine.inputs.KeyListener;
 import dev.venturex.engine.inputs.MouseListener;
-import dev.venturex.engine.utils.Time;
 import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.opengl.GL;
@@ -90,8 +88,8 @@ public class Window {
     }
 
     private void loop(){
-        float lastTime = Time.getTime();
-        float endTime = Time.getTime();
+        float lastTime = (float) glfwGetTime();
+        float endTime = (float) glfwGetTime();
         float deltaTime = -1;
 
         while (!glfwWindowShouldClose(window)){
@@ -108,7 +106,7 @@ public class Window {
 
             glfwSwapBuffers(window);
 
-            endTime = Time.getTime();
+            endTime = (float) glfwGetTime();
             deltaTime = endTime - lastTime;
             lastTime = endTime;
         }
