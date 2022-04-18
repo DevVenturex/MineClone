@@ -5,16 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="85cedd12-6fa4-488f-b771-ac3941f74938" name="Changes" comment="commit">
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/components/Sprite.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/components/SpriteSheet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/GameObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/Window.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/components/SpriteRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/components/SpriteRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/gfx/Shader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/gfx/Shader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/gfx/Texture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/gfx/Texture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/maths/Transform.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/maths/Transform.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/renderer/RenderBatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/renderer/RenderBatch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/utils/Time.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/renderer/Renderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/renderer/Renderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/utils/AssetPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/utils/AssetPool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/venturex/game/MyGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/game/MyGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/venturex/game/scenes/LevelEditorScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/game/scenes/LevelEditorScene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/shaders/fragment.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/shaders/fragment.glsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/shaders/vertex.glsl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/shaders/vertex.glsl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +184,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650216713116</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="commit">
+      <created>1650284163299</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1650284163299</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

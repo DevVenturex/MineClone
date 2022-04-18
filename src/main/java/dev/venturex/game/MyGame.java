@@ -16,7 +16,7 @@ public class MyGame extends Game {
     }
 
     public static void main(String[] args) {
-        Game game = new MyGame("MyGame", 1920, 1200, new LevelEditorScene());
+        Game game = new MyGame("MyGame", 1900, 1080, new LevelEditorScene());
         game.start();
 
         MyGame myGame = (MyGame) game;

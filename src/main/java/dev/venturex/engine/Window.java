@@ -83,6 +83,9 @@ public class Window {
 
         GL.createCapabilities();
 
+        glEnable(GL_BLEND);
+        glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+
         game.getCurrentScene().init();
         game.getCurrentScene().start();
     }
@@ -96,7 +99,7 @@ public class Window {
             // Poll events
             glfwPollEvents();
 
-            glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+            glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT);
 
             if (deltaTime >= 0) {
