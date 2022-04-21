@@ -1,39 +1,46 @@
 package dev.venturex.game.scenes;
-import dev.venturex.engine.GameObject;
-import dev.venturex.engine.Scene;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import dev.venturex.engine.*;
 import dev.venturex.engine.components.Sprite;
 import dev.venturex.engine.components.SpriteRenderer;
 import dev.venturex.engine.components.SpriteSheet;
 import dev.venturex.engine.gfx.Camera;
+import dev.venturex.engine.inputs.Inputs;
 import dev.venturex.engine.maths.Transform;
 import dev.venturex.engine.utils.AssetPool;
+import imgui.ImGui;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 
 import java.io.File;
 
+import static org.lwjgl.glfw.GLFW.*;
+
 public class LevelEditorScene extends Scene {
+
+    private final int SPEED = 300;
+    private final int GRAVITY = 1400;
 
     private GameObject object;
     private SpriteSheet sheet;
+
 
     @Override
     public void init() {
         loadResources();
         this.camera = new Camera(new Vector2f());
+        if (loadedLevel) return;
 
         sheet = AssetPool.getSpriteSheet("res:assets/textures/Character_Sprite.png");
 
-        object = new GameObject("Object 1", new Transform(new Vector2f(100, 100), new Vector2f(256, 256)), 2);
-        object.addComponent(new SpriteRenderer(new Sprite(
-                AssetPool.getTexture("res:assets/textures/blendImage1.png")
-        )));
+        object = new GameObject("TestObject", new Transform(new Vector2f(100, 100), new Vector2f(192, 192)), 0);
+        SpriteRenderer objSpriteRenderer = new SpriteRenderer();
+        Vector4f color = new Vector4f(1, 0, 0, 1);
+        objSpriteRenderer.setColor(color);
+        object.addComponent(objSpriteRenderer);
         this.addGameObjectToScene(object);
-
-        GameObject object1 = new GameObject("Object 2", new Transform(new Vector2f(300, 150), new Vector2f(256, 256)), 3);
-        object1.addComponent(new SpriteRenderer(new Sprite(AssetPool.getTexture("res:assets/textures/blendImage2.png"))));
-        this.addGameObjectToScene(object1);
-
+        this.activeGameObject = object;
     }
 
     private void loadResources(){
@@ -46,17 +53,20 @@ public class LevelEditorScene extends Scene {
                         350 / 7, 592 / 16, 7 * 16, 0));
     }
 
-    int spriteIndex = 7;
-    float spriteFlipTime = 0.15f;
-    float spriteFlipTimeLeft = 0.0f;
     @Override
     public void update(float deltaTime) {
-
 
         for (GameObject go : this.gameObjects){
             go.update(deltaTime);
         }
 
         this.renderer.render();
+    }
+
+    @Override
+    public void imgui() {
+        ImGui.begin("Test Window");
+        ImGui.text("Some random text");
+        ImGui.end();
     }
 }

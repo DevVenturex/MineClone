@@ -1,5 +1,6 @@
 package dev.venturex.engine;
 
+import dev.venturex.engine.imgui.ImGuiLayer;
 import dev.venturex.engine.inputs.KeyListener;
 import dev.venturex.engine.inputs.MouseListener;
 import org.lwjgl.Version;
@@ -17,8 +18,9 @@ public class Window {
     private Window instance;
 
     private String title;
-    private int width, height;
+    private static int width, height;
     private long window;
+    private ImGuiLayer layer;
 
     public Window get(Game game, String title, int width, int height){
         this.game = game;
@@ -72,6 +74,10 @@ public class Window {
         glfwSetMouseButtonCallback(window, MouseListener::mouseButtonCallback);
         glfwSetScrollCallback(window, MouseListener::mouseScrollCallback);
         glfwSetKeyCallback(window, KeyListener::keyCallback);
+        glfwSetWindowSizeCallback(window, (w, width, height) -> {
+            Window.setWidth(width);
+            Window.setHeight(height);
+        });
 
         // Make the OpenGL context current
         glfwMakeContextCurrent(window);
@@ -85,6 +91,8 @@ public class Window {
 
         glEnable(GL_BLEND);
         glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+        this.layer = new ImGuiLayer(window);
+        this.layer.initImGui();
 
         game.getCurrentScene().init();
         game.getCurrentScene().start();
@@ -107,11 +115,28 @@ public class Window {
                 glfwSetWindowTitle(window, title + " || FPS: " + (int) (1 / deltaTime));
             }
 
+            this.layer.update(deltaTime, game.getCurrentScene());
             glfwSwapBuffers(window);
 
             endTime = (float) glfwGetTime();
             deltaTime = endTime - lastTime;
             lastTime = endTime;
         }
+    }
+
+    public static int getWidth() {
+        return width;
+    }
+
+    public static int getHeight() {
+        return height;
+    }
+
+    public static void setWidth(int width) {
+        Window.width = width;
+    }
+
+    public static void setHeight(int height) {
+        Window.height = height;
     }
 }
