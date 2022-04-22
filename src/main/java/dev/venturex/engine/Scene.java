@@ -2,6 +2,8 @@ package dev.venturex.engine;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import dev.venturex.engine.components.Component;
+import dev.venturex.engine.components.ComponentDeserializer;
 import dev.venturex.engine.gfx.Camera;
 import dev.venturex.engine.renderer.Renderer;
 import imgui.ImGui;
@@ -95,10 +97,26 @@ public abstract class Scene {
         }
 
         if (!inFile.equals("")){
+            int maxGoId = -1;
+            int maxCompId = -1;
             GameObject[] objects = gson.fromJson(inFile, GameObject[].class);
             for (int i = 0; i < objects.length; i++) {
                 addGameObjectToScene(objects[i]);
+
+                for (Component c : objects[i].getAllComponents()){
+                    if (c.getUid() > maxCompId){
+                        maxCompId = c.getUid();
+                    }
+                }
+                if (objects[i].getUid() > maxGoId){
+                    maxGoId = objects[i].getUid();
+                }
             }
+
+            maxGoId++;
+            maxCompId++;
+            GameObject.init(maxGoId);
+            Component.init(maxCompId);
             this.loadedLevel = true;
         }
     }

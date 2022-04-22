@@ -1,9 +1,11 @@
 package dev.venturex.engine.inputs;
 
+import dev.venturex.engine.Game;
+import dev.venturex.engine.Window;
 import org.joml.Vector2d;
+import org.joml.Vector4f;
 
-import static org.lwjgl.glfw.GLFW.GLFW_PRESS;
-import static org.lwjgl.glfw.GLFW.GLFW_RELEASE;
+import static org.lwjgl.glfw.GLFW.*;
 
 public class MouseListener {
 
@@ -56,6 +58,26 @@ public class MouseListener {
         get().position = new Vector2d(0.0d, 0.0d);
     }
 
+    public static float getOrthoX(){
+        float currentX = (float) get().getPosition().x;
+        currentX = (currentX / (float) Window.getWidth()) * 2.0f - 1.0f;
+        Vector4f tmp = new Vector4f(currentX, 0, 0, 1);
+        tmp.mul(Game.getCurrentScene().camera().getInverseProjection()).mul(Game.getCurrentScene().camera().getInverseView());
+        currentX = tmp.x;
+        
+        return currentX;
+    }
+
+    public static float getOrthoY(){
+        float currentY = (float) (Window.getHeight() - get().getPosition().y);
+        currentY = (currentY / (float) Window.getHeight()) * 2.0f - 1.0f;
+        Vector4f tmp = new Vector4f(0, currentY, 0, 1);
+        tmp.mul(Game.getCurrentScene().camera().getInverseProjection()).mul(Game.getCurrentScene().camera().getInverseView());
+        currentY = tmp.y;
+
+        return currentY;
+    }
+
     public Vector2d getScroll() {
         return scroll;
     }
@@ -75,4 +97,5 @@ public class MouseListener {
     public boolean isDragging() {
         return isDragging;
     }
+
 }

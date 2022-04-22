@@ -2,6 +2,8 @@ package dev.venturex.engine.imgui;
 
 import dev.venturex.engine.Scene;
 import dev.venturex.engine.Window;
+import dev.venturex.engine.inputs.KeyListener;
+import dev.venturex.engine.inputs.MouseListener;
 import dev.venturex.engine.utils.AssetPool;
 import imgui.*;
 import imgui.callbacks.ImStrConsumer;
@@ -96,6 +98,10 @@ public class ImGuiLayer {
             io.setKeyShift(io.getKeysDown(GLFW_KEY_LEFT_SHIFT) || io.getKeysDown(GLFW_KEY_RIGHT_SHIFT));
             io.setKeyAlt(io.getKeysDown(GLFW_KEY_LEFT_ALT) || io.getKeysDown(GLFW_KEY_RIGHT_ALT));
             io.setKeySuper(io.getKeysDown(GLFW_KEY_LEFT_SUPER) || io.getKeysDown(GLFW_KEY_RIGHT_SUPER));
+
+            if (!io.getWantCaptureKeyboard()){
+                KeyListener.keyCallback(w, key, scancode, action, mods);
+            }
         });
 
         glfwSetCharCallback(window, (w, c) -> {
@@ -117,6 +123,10 @@ public class ImGuiLayer {
 
             if (!io.getWantCaptureMouse() && mouseDown[1]) {
                 ImGui.setWindowFocus(null);
+            }
+
+            if (!io.getWantCaptureMouse()){
+                MouseListener.mouseButtonCallback(w, button, action, mods);
             }
         });
 

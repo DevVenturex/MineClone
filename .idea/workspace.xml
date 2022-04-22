@@ -5,21 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="85cedd12-6fa4-488f-b771-ac3941f74938" name="Changes" comment="Base is ready">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/ComponentDeserializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/GameObjectDeserializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/imgui/ImGuiLayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/Prefabs.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/components/Component.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/components/GridLines.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/components/MouseControls.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/components/RigidBody.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/renderer/DebugDraw.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/renderer/Line2D.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/utils/Settings.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/shaders/fDebugLine2D.glsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/shaders/vDebugLine2D.glsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/textures/TileSet.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/Component.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imgui.ini" beforeDir="false" afterPath="$PROJECT_DIR$/imgui.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/level.json" beforeDir="false" afterPath="$PROJECT_DIR$/level.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/Component.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/ComponentDeserializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/components/ComponentDeserializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/GameObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/GameObjectDeserializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/GameObjectDeserializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/Scene.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/Window.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/components/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/components/Sprite.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/components/SpriteRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/components/SpriteRenderer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/components/SpriteSheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/components/SpriteSheet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/gfx/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/gfx/Camera.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/gfx/Texture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/gfx/Texture.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/utils/AssetPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/utils/AssetPool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/venturex/game/MyGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/game/MyGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/imgui/ImGuiLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/imgui/ImGuiLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/inputs/MouseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/engine/inputs/MouseListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/venturex/game/scenes/LevelEditorScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/venturex/game/scenes/LevelEditorScene.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -201,7 +214,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650305610797</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Base is ready">
+      <created>1650553479372</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1650553479372</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

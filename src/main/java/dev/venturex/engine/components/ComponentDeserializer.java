@@ -1,6 +1,7 @@
-package dev.venturex.engine;
+package dev.venturex.engine.components;
 
 import com.google.gson.*;
+import dev.venturex.engine.components.Component;
 
 import java.lang.reflect.Type;
 

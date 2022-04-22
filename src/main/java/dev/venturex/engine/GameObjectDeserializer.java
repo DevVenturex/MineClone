@@ -1,6 +1,7 @@
 package dev.venturex.engine;
 
 import com.google.gson.*;
+import dev.venturex.engine.components.Component;
 import dev.venturex.engine.maths.Transform;
 
 import java.lang.reflect.Type;

@@ -62,6 +62,7 @@ public class Game implements Runnable {
 
     public void setScene(Scene nextScene){
         this.currentScene = nextScene;
+        currentScene.load();
         currentScene.init();
         currentScene.start();
     }

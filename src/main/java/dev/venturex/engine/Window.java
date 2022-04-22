@@ -3,6 +3,7 @@ package dev.venturex.engine;
 import dev.venturex.engine.imgui.ImGuiLayer;
 import dev.venturex.engine.inputs.KeyListener;
 import dev.venturex.engine.inputs.MouseListener;
+import dev.venturex.engine.renderer.DebugDraw;
 import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.opengl.GL;
@@ -94,6 +95,7 @@ public class Window {
         this.layer = new ImGuiLayer(window);
         this.layer.initImGui();
 
+        game.getCurrentScene().load();
         game.getCurrentScene().init();
         game.getCurrentScene().start();
     }
@@ -107,10 +109,13 @@ public class Window {
             // Poll events
             glfwPollEvents();
 
+            DebugDraw.beginFrame();
+
             glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT);
 
             if (deltaTime >= 0) {
+                DebugDraw.draw();
                 game.getCurrentScene().update(deltaTime);
                 glfwSetWindowTitle(window, title + " || FPS: " + (int) (1 / deltaTime));
             }
@@ -122,6 +127,7 @@ public class Window {
             deltaTime = endTime - lastTime;
             lastTime = endTime;
         }
+        game.getCurrentScene().saveExit();
     }
 
     public static int getWidth() {
